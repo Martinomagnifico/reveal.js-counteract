@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>CounterAct for Reveal.js</title>
+    <meta name="description" content="">
+    <meta name="author" content="Martinomagnifico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" href="../dist/reset.css">
+    <link rel="stylesheet" href="../dist/reveal.css">
+    <link rel="stylesheet" href="../dist/theme/black.css">
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css">
+    <link rel="stylesheet" href="css/demo.css">
+    <style>
+        [data-count-titlecount]:after {
+            content: attr(data-count-titlecount);
+            background: #42affa;
+            display: inline-block;
+            border-radius: 42px;
+            width: 1.20em;
+            height: 1.20em;
+            line-height: 1.25em;
+            margin-left: 0.25em;
+        }
+
+        figcaption:after {
+            content: " " attr(data-count-figcaption);
+            color: #42affa;
+            font-weight: bold;
+        }
+
+        ol.list,
+        ol.stoplist {
+            padding-left: 0;
+            margin-left: 0;
+            list-style: none;
+        }
+
+        ol.list li:before {
+            content: attr(data-count-mylist) ". ";
+            color: #42affa;
+            font-weight: bold;
+        }
+
+        ol.stoplist li:before {
+            content: attr(data-count-stoplist) ". ";
+            color: #42affa;
+            font-weight: bold;
+        }
+
+        h4[data-count-mainnumber]:before {
+            content: attr(data-count-mainnumber) ". ";
+            color: #42affa;
+            font-weight: bold;
+        }
+
+        section h4[data-count-mainnumber][data-count-subnumber]:before {
+            content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". ";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="reveal"><a class="github-corner" href="https://github.com/Martinomagnifico/reveal.js-counteract" target="blank" title="View source on GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 55">
+                <path fill="currentColor" d="M27.5 11.2a16.3 16.3 0 0 0-5.1 31.7c.8.2 1.1-.3 1.1-.7v-2.8c-4.5 1-5.5-2.2-5.5-2.2-.7-1.9-1.8-2.4-1.8-2.4-1.5-1 .1-1 .1-1 1.6.1 2.5 1.7 2.5 1.7 1.5 2.5 3.8 1.8 4.7 1.4.2-1 .6-1.8 1-2.2-3.5-.4-7.3-1.8-7.3-8 0-1.8.6-3.3 1.6-4.4-.1-.5-.7-2.1.2-4.4 0 0 1.4-.4 4.5 1.7a15.6 15.6 0 0 1 8.1 0c3.1-2 4.5-1.7 4.5-1.7.9 2.3.3 4 .2 4.4 1 1 1.6 2.6 1.6 4.3 0 6.3-3.8 7.7-7.4 8 .6.6 1.1 1.6 1.1 3v4.6c0 .4.3.9 1.1.7a16.3 16.3 0 0 0-5.2-31.7"></path>
+            </svg></a>
+        <div class="slides">
+            <section class="center">
+                <h1>CounterAct</h1>
+                <h4>A <span class="titlecount">counter</span> for Reveal.js</h4>
+            </section>
+            <section class="center">
+                <h3>Why?</h3>
+                <p>Reveal.js optimises the performance of presentations by hiding slides that are more than a few steps in the future. </p>
+                <p>As per the CSS specification, CSS counters simply don’t work in slides that have <code>display: none</code>. </p>
+            </section>
+            <section class="center">
+                <h3>How?</h3>
+                <p>CounterAct goes around this limitation by using data-attributes on the elements that you want to count. </p>
+                <p>Similar to CSS counters, CounterAct lets you define counters. This way, you can have nice numbers in your presentation again.</p>
+            </section>
+            <section class="center">
+                <h2>Example</h2>
+            </section>
+            <section>
+                <h3>Counting occurences</h3>
+                <p class="small">Counting occurences will count up across all slides.</p>
+                <div class="example">
+                    <figcaption>This is figcaption number</figcaption>
+                    <figcaption>This is figcaption number</figcaption>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="small left">Plugin config:</p>
+                        <pre><code class="hljs javascript">counters: [
+	{
+		name: 'figcaption',
+		selector : 'figcaption'
+	}
+]</code></pre>
+                    </div>
+                    <div class="col">
+                        <p class="small left">CSS:</p>
+                        <pre><code class="hljs css">figcaption:after {
+	content: " " attr(data-count-figcaption);
+	color: #42affa;
+	font-weight: bold;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Counting in lists</h3>
+                <p class="small">In and across lists and slides, these keep counting up.</p>
+                <div class="row example">
+                    <div class="col">
+                        <p class="left" style="margin-top: 0; margin-bottom: 0.2em">A list</p>
+                        <ol class="list">
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ol>
+                    </div>
+                    <div class="col">
+                        <p class="left" style="margin-top: 0; margin-bottom: 0.2em">An other list</p>
+                        <ol class="list">
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="small left">Plugin config:</p>
+                        <pre><code class="hljs javascript">counters: [
+	{
+		name: 'mylist',
+		selector : 'ol.list li'
+	}
+]</code></pre>
+                    </div>
+                    <div class="col">
+                        <p class="small left">CSS:</p>
+                        <pre><code class="hljs css">ol.list {
+	list-style: none;
+}
+ol.list li:before {
+	content: attr(data-count-mylist) ". " ;
+	color: #42affa;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <section>
+                <h3>Resetting counters</h3>
+                <p class="small">Resets must be parents of selectors.</p>
+                <div class="row example">
+                    <div class="col">
+                        <p class="left" style="margin-top: 0; margin-bottom: 0.2em">A list</p>
+                        <ol class="stoplist">
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ol>
+                    </div>
+                    <div class="col">
+                        <p class="left" style="margin-top: 0; margin-bottom: 0.2em">An other list</p>
+                        <ol class="stoplist">
+                            <li>List item</li>
+                            <li>List item</li>
+                        </ol>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="small left">Plugin config:</p>
+                        <pre><code class="hljs javascript">counters: [
+	{
+		name: 'stoplist',
+		selector : 'ol.stoplist li',
+		reset : 'ol.stoplist'
+	}
+]</code></pre>
+                    </div>
+                    <div class="col">
+                        <p class="small left">CSS:</p>
+                        <pre><code class="hljs css">ol.stoplist {
+	list-style: none;
+}
+ol.stoplist li:before {
+	content: attr(data-count-stoplist) ". " ;
+	color: #42affa;
+}</code></pre>
+                    </div>
+                </div>
+            </section>
+            <section class="countme center">
+                <h3>Incrementing with other elements</h3>
+                <div class="example">
+                    <h4 class="countme">This h4 is counted</h4>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <p class="small left">Plugin config:</p>
+                        <pre><code class="hljs javascript">counters: [
+	{
+		name: 'mainnumber',
+		increment: '.slides > section.countme',
+		selector : 'h4.countme'
+	}
+]</code></pre>
+                    </div>
+                    <div class="col">
+                        <p class="small left">CSS:</p>
+                        <pre><code class="hljs css">h4[data-count-mainnumber]:before {
+	content: attr(data-count-mainnumber) ". ";
+	color: #42affa;
+}</code></pre>
+                    </div>
+                </div>
+                <p class="small">Specifying the data-attribute on the H4, instead of just the .countme class, makes sure that you target the H4's where the counters are added.</p>
+            </section>
+            <section class="countme center">
+                <p class="small">Increments must be parents of selectors and children of resets.</p>
+                <div class="example">
+                    <h4 class="countme">This h4 is also counted</h4>
+                </div>
+            </section>
+            <section class="countme center">
+                <section class="center">
+                    <h3>Combine increment and reset</h3>
+                    <div class="example">
+                        <h4 class="countme">This h4 has two counters</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="small left">Plugin config:</p>
+                            <pre><code class="hljs javascript">counters: [
+	{
+		name: 'mainnumber',
+		increment: '.slides > section.countme',
+		selector : 'h4.countme'
+	},
+	{
+		name: 'subnumber',
+		increment: '.slides > section section',
+		selector : 'h4.countme',
+		reset: '.slides > section'
+	}
+]</code></pre>
+                        </div>
+                        <div class="col">
+                            <p class="small left">CSS:</p>
+                            <pre><code class="hljs css">h4[data-count-mainnumber]:before {
+	content: attr(data-count-mainnumber) ". ";
+	color: #42affa;
+}
+section h4[data-count-mainnumber][data-count-subnumber]:before {
+	content: attr(data-count-mainnumber) "." attr(data-count-subnumber) ". " ;
+}
+
+</code></pre>
+                        </div>
+                    </div>
+                </section>
+                <section class="center">
+                    <div class="example">
+                        <h4 class="countme">And this one as well</h4>
+                    </div>
+                    <p class="small">By combining increments and resets, you can count things like vertical sections, and sections inside them. If sections are hidden with <code>data-visibility</code>, they will not increment or add to the count of selectors in them.</p>
+                </section>
+            </section>
+            <section class="countme center">
+                <h4 class="countme">Happy counting!</h4>
+            </section>
+        </div>
+    </div>
+    <script src="../dist/reveal.js"></script>
+    <script src="plugin/counteract/counteract.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            transition: "slide",
+            counteract: {
+                debug: true,
+                counters: [{
+                        name: "titlecount",
+                        selector: ".titlecount"
+                    },
+                    {
+                        name: "mylist",
+                        selector: "ol.list li"
+                    },
+                    {
+                        name: "stoplist",
+                        selector: "ol.stoplist li",
+                        reset: "ol.stoplist"
+                    },
+                    {
+                        name: "figcaption",
+                        selector: "figcaption"
+                    },
+                    {
+                        name: "mainnumber",
+                        increment: ".slides > section.countme",
+                        selector: "h4.countme",
+                        reset: ".slides"
+                    },
+                    {
+                        name: "subnumber",
+                        increment: ".slides > section section",
+                        selector: "h4.countme",
+                        reset: ".slides > section"
+                    }
+                ]
+            },
+            plugins: [
+                CounterAct,
+                RevealHighlight
+            ]
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+{
+    "name": "reveal.js-counteract",
+    "version": "1.0.0",
+    "description": "A plugin for Reveal.js that adds sequential numbers to elements for use in counters across slides",
+    "keywords": "reveal, reveal.js, reveal-plugin, plugin, count, counter",
+    "homepage": "https://github.com/Martinomagnifico/reveal.js-counteract",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Martinomagnifico/reveal.js-counteract.git"
+    },
+    "author": "Martijn De Jongh",
+    "license": "MIT, Copyright (C) 2022 Martijn De Jongh",
+    "peerDependencies": {
+        "reveal.js": "^4.2"
+    }
+}

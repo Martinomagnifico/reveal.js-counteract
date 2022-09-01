@@ -1,0 +1,158 @@
+/*************************************/
+/*              DEMO ONLY            */
+/*************************************/
+.backgrounds {
+  background: #1a1626;
+}
+
+.slides {
+  opacity: 0;
+  -webkit-transition: opacity 0.5s ease;
+  -o-transition: opacity 0.5s ease;
+  transition: opacity 0.5s ease;
+}
+
+.reveal.ready .slides {
+  opacity: 1;
+}
+
+.reveal .left {
+  text-align: left;
+}
+
+.reveal h1 {
+  text-transform: none;
+}
+
+.reveal .row {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.reveal .row .col {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.reveal .row .col:first-child {
+  padding-right: 10px;
+}
+.reveal .row .col:last-child {
+  padding-left: 10px;
+}
+
+.reveal .code-wrapper code {
+  white-space: pre-wrap;
+}
+
+.reveal pre {
+  font-size: 16px;
+  width: 100%;
+  margin: 0;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  cursor: default;
+}
+.reveal pre:focus {
+  outline: none;
+}
+.reveal pre code {
+  border-radius: 4px;
+  padding: 10px 15px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  line-height: 20px;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+}
+.reveal pre code:focus {
+  outline: none;
+}
+.reveal pre + pre {
+  margin-top: 20px;
+}
+
+p {
+  font-size: 0.8em;
+}
+p.small {
+  font-size: 0.6em;
+}
+
+p code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.125em 0.3em;
+  font-size: 0.8em;
+  border-radius: 0.25em;
+}
+
+.example {
+  padding: 0.5em 1em;
+  font-size: 0.6em;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  margin-bottom: 1em;
+}
+
+pre code.hljs {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+a.github-corner {
+  position: absolute;
+  z-index: 1;
+  width: clamp(50px, 8vmax, 80px);
+  line-height: 0;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+a.github-corner:hover {
+  color: white;
+}
+
+.reveal .controls {
+  bottom: 15px;
+  right: 12px;
+}
+
+.reveal .progress {
+  background: rgba(66, 175, 250, 0.3);
+  font-size: 12px;
+  height: 0.3em;
+  border-radius: 0.25em;
+  left: 0.75em;
+  bottom: 0.75em;
+  right: 0.75em;
+  width: calc(100% - 1.5em);
+  overflow: hidden;
+  opacity: 0.66;
+}
+
+.reveal:-webkit-full-screen .progress {
+  font-size: 12px;
+}
+
+.reveal:-ms-fullscreen .progress {
+  font-size: 12px;
+}
+
+.reveal:fullscreen .progress {
+  font-size: 12px;
+}
